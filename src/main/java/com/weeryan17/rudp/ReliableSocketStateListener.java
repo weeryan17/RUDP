@@ -28,36 +28,40 @@
  *
  */
 
-package net.rudp.impl;
+package com.weeryan17.rudp;
 
-
-
-/*
- *  NUL Segment
+/**
+ * The listener interface for receiving socket events.
+ * The class that is interested in processing a socket
+ * event implements this interface.
  *
- *   0 1 2 3 4 5 6 7 8            15
- *  +-+-+-+-+-+-+-+-+---------------+
- *  |0|1|0|0|1|0|0|0|       6       |
- *  +-+-+-+-+-+-+-+-+---------------+
- *  | Sequence #    |  Ack Number   |
- *  +---------------+---------------+
- *  |            Checksum           |
- *  +---------------+---------------+
+ * @author Adrian Granados
  *
  */
-public class NULSegment extends Segment
+public interface ReliableSocketStateListener
 {
-    protected NULSegment()
-    {
-    }
+    /**
+     * Invoked when the connection is opened.
+     */
+    public void connectionOpened(ReliableSocket sock);
 
-    public NULSegment(int seqn)
-    {
-        init(NUL_FLAG, seqn, RUDP_HEADER_LEN);
-    }
+    /**
+     * Invoked when the attempt to establish a connection is refused.
+     */
+    public void connectionRefused(ReliableSocket sock);
 
-    public String type()
-    {
-        return "NUL";
-    }
+    /**
+     * Invoked when the connection is closed.
+     */
+    public void connectionClosed(ReliableSocket sock);
+
+    /**
+     * Invoked when the (established) connection fails.
+     */
+    public void connectionFailure(ReliableSocket sock);
+
+    /**
+     * Invoked when the connection is reset.
+     */
+    public void connectionReset(ReliableSocket sock);
 }

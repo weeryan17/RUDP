@@ -28,7 +28,7 @@
  *
  */
 
-package net.rudp;
+package com.weeryan17.rudp;
 
 import java.io.IOException;
 import java.io.OutputStream;

@@ -28,7 +28,7 @@
  *
  */
 
-package net.rudp;
+package com.weeryan17.rudp;
 
 import java.io.EOFException;
 import java.io.IOException;
@@ -49,15 +49,15 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Random;
 
-import net.rudp.impl.ACKSegment;
-import net.rudp.impl.DATSegment;
-import net.rudp.impl.EAKSegment;
-import net.rudp.impl.FINSegment;
-import net.rudp.impl.NULSegment;
-import net.rudp.impl.RSTSegment;
-import net.rudp.impl.SYNSegment;
-import net.rudp.impl.Segment;
-import net.rudp.impl.Timer;
+import com.weeryan17.rudp.impl.ACKSegment;
+import com.weeryan17.rudp.impl.RSTSegment;
+import com.weeryan17.rudp.impl.DATSegment;
+import com.weeryan17.rudp.impl.EAKSegment;
+import com.weeryan17.rudp.impl.FINSegment;
+import com.weeryan17.rudp.impl.NULSegment;
+import com.weeryan17.rudp.impl.SYNSegment;
+import com.weeryan17.rudp.impl.Segment;
+import com.weeryan17.rudp.impl.Timer;
 
 /**
  * This class implements client sockets that use

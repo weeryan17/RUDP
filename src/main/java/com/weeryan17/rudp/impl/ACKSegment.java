@@ -28,36 +28,37 @@
  *
  */
 
-package net.rudp.impl;
+package com.weeryan17.rudp.impl;
+
+
 
 /*
- *  FIN Segment
+ *  ACK Segment
  *
  *   0 1 2 3 4 5 6 7 8            15
  *  +-+-+-+-+-+-+-+-+---------------+
- *  | |A| | | | | | |               |
- *  |0|C|0|0|0|0|1|0|        6      |
- *  | |K| | | | | | |               |
+ *  |0|1|0|0|0|0|0|0|       6       |
  *  +-+-+-+-+-+-+-+-+---------------+
  *  | Sequence #    |   Ack Number  |
  *  +---------------+---------------+
- *  |         Header Checksum       |
+ *  |           Checksum            |
  *  +---------------+---------------+
  *
  */
-public class FINSegment extends Segment
+public class ACKSegment extends Segment
 {
-    protected FINSegment()
+    protected ACKSegment()
     {
     }
 
-    public FINSegment(int seqn)
+    public ACKSegment(int seqn, int ackn)
     {
-        init(FIN_FLAG, seqn, RUDP_HEADER_LEN);
+        init(ACK_FLAG, seqn, RUDP_HEADER_LEN);
+        setAck(ackn);
     }
 
     public String type()
     {
-        return "FIN";
+        return "ACK";
     }
 }

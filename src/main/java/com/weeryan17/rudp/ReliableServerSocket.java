@@ -28,7 +28,7 @@
  *
  */
 
-package net.rudp;
+package com.weeryan17.rudp;
 
 import java.io.IOException;
 import java.net.DatagramPacket;
@@ -43,8 +43,8 @@ import java.net.SocketTimeoutException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import net.rudp.impl.SYNSegment;
-import net.rudp.impl.Segment;
+import com.weeryan17.rudp.impl.SYNSegment;
+import com.weeryan17.rudp.impl.Segment;
 
 /**
  * This class implements server sockets that use

@@ -28,35 +28,36 @@
  *
  */
 
-package net.rudp;
+package com.weeryan17.rudp.impl;
 
-/**
- * The listener interface for receiving packet events.
- * The class that is interested in processing a packet
- * event implements this interface.
+/*
+ *  FIN Segment
  *
- * @author Adrian Granados
+ *   0 1 2 3 4 5 6 7 8            15
+ *  +-+-+-+-+-+-+-+-+---------------+
+ *  | |A| | | | | | |               |
+ *  |0|C|0|0|0|0|1|0|        6      |
+ *  | |K| | | | | | |               |
+ *  +-+-+-+-+-+-+-+-+---------------+
+ *  | Sequence #    |   Ack Number  |
+ *  +---------------+---------------+
+ *  |         Header Checksum       |
+ *  +---------------+---------------+
  *
  */
-public interface ReliableSocketListener
+public class FINSegment extends Segment
 {
-    /**
-     * Invoked when a data packet is sent.
-     */
-    public void packetSent();
+    protected FINSegment()
+    {
+    }
 
-    /**
-     * Invoked when a data packet is retransmitted.
-     */
-    public void packetRetransmitted();
+    public FINSegment(int seqn)
+    {
+        init(FIN_FLAG, seqn, RUDP_HEADER_LEN);
+    }
 
-    /**
-     * Invoked when a data packet is received in-order.
-     */
-    public void packetReceivedInOrder();
-
-    /**
-     * Invoked when a out of sequence data packet is received.
-     */
-    public void packetReceivedOutOfOrder();
+    public String type()
+    {
+        return "FIN";
+    }
 }

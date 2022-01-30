@@ -28,14 +28,14 @@
  *
  */
 
-package net.rudp;
+package com.weeryan17.rudp;
 
 
 /**
  * This class specifies the RUDP parameters of a socket.
  *
  * @author Adrian Granados
- * @see    net.rudp.ReliableSocket
+ * @see    ReliableSocket
  */
 public class ReliableSocketProfile
 {

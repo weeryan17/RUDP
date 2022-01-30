@@ -28,7 +28,7 @@
  *
  */
 
-package net.rudp.impl;
+package com.weeryan17.rudp.impl;
 
 public abstract class Segment
 {
