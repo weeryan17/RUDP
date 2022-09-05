@@ -28,7 +28,7 @@
  *
  */
 
-package com.weeryan17.rudp;
+package org.metromixer.rudp;
 
 import java.io.IOException;
 import java.net.DatagramPacket;
@@ -43,8 +43,8 @@ import java.net.SocketTimeoutException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import com.weeryan17.rudp.impl.SYNSegment;
-import com.weeryan17.rudp.impl.Segment;
+import org.metromixer.rudp.impl.SYNSegment;
+import org.metromixer.rudp.impl.Segment;
 
 /**
  * This class implements server sockets that use

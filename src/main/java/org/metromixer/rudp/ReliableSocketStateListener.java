@@ -28,35 +28,40 @@
  *
  */
 
-package com.weeryan17.rudp;
+package org.metromixer.rudp;
 
 /**
- * The listener interface for receiving packet events.
- * The class that is interested in processing a packet
+ * The listener interface for receiving socket events.
+ * The class that is interested in processing a socket
  * event implements this interface.
  *
  * @author Adrian Granados
  *
  */
-public interface ReliableSocketListener
+public interface ReliableSocketStateListener
 {
     /**
-     * Invoked when a data packet is sent.
+     * Invoked when the connection is opened.
      */
-    public void packetSent();
+    public void connectionOpened(ReliableSocket sock);
 
     /**
-     * Invoked when a data packet is retransmitted.
+     * Invoked when the attempt to establish a connection is refused.
      */
-    public void packetRetransmitted();
+    public void connectionRefused(ReliableSocket sock);
 
     /**
-     * Invoked when a data packet is received in-order.
+     * Invoked when the connection is closed.
      */
-    public void packetReceivedInOrder();
+    public void connectionClosed(ReliableSocket sock);
 
     /**
-     * Invoked when a out of sequence data packet is received.
+     * Invoked when the (established) connection fails.
      */
-    public void packetReceivedOutOfOrder();
+    public void connectionFailure(ReliableSocket sock);
+
+    /**
+     * Invoked when the connection is reset.
+     */
+    public void connectionReset(ReliableSocket sock);
 }

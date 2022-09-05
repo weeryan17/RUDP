@@ -28,7 +28,7 @@
  *
  */
 
-package com.weeryan17.rudp;
+package org.metromixer.rudp;
 
 
 /**

@@ -28,36 +28,37 @@
  *
  */
 
-package com.weeryan17.rudp.impl;
+package org.metromixer.rudp.impl;
 
 
 
 /*
- *  NUL Segment
+ *  ACK Segment
  *
  *   0 1 2 3 4 5 6 7 8            15
  *  +-+-+-+-+-+-+-+-+---------------+
- *  |0|1|0|0|1|0|0|0|       6       |
+ *  |0|1|0|0|0|0|0|0|       6       |
  *  +-+-+-+-+-+-+-+-+---------------+
- *  | Sequence #    |  Ack Number   |
+ *  | Sequence #    |   Ack Number  |
  *  +---------------+---------------+
- *  |            Checksum           |
+ *  |           Checksum            |
  *  +---------------+---------------+
  *
  */
-public class NULSegment extends Segment
+public class ACKSegment extends Segment
 {
-    protected NULSegment()
+    protected ACKSegment()
     {
     }
 
-    public NULSegment(int seqn)
+    public ACKSegment(int seqn, int ackn)
     {
-        init(NUL_FLAG, seqn, RUDP_HEADER_LEN);
+        init(ACK_FLAG, seqn, RUDP_HEADER_LEN);
+        setAck(ackn);
     }
 
     public String type()
     {
-        return "NUL";
+        return "ACK";
     }
 }

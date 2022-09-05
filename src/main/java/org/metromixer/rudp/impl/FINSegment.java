@@ -28,15 +28,15 @@
  *
  */
 
-package com.weeryan17.rudp.impl;
+package org.metromixer.rudp.impl;
 
 /*
- *  RST Segment
+ *  FIN Segment
  *
  *   0 1 2 3 4 5 6 7 8            15
  *  +-+-+-+-+-+-+-+-+---------------+
  *  | |A| | | | | | |               |
- *  |0|C|0|1|0|0|0|0|        6      |
+ *  |0|C|0|0|0|0|1|0|        6      |
  *  | |K| | | | | | |               |
  *  +-+-+-+-+-+-+-+-+---------------+
  *  | Sequence #    |   Ack Number  |
@@ -45,19 +45,19 @@ package com.weeryan17.rudp.impl;
  *  +---------------+---------------+
  *
  */
-public class RSTSegment extends Segment
+public class FINSegment extends Segment
 {
-    protected RSTSegment()
+    protected FINSegment()
     {
     }
 
-    public RSTSegment(int seqn)
+    public FINSegment(int seqn)
     {
-        init(RST_FLAG, seqn, RUDP_HEADER_LEN);
+        init(FIN_FLAG, seqn, RUDP_HEADER_LEN);
     }
 
     public String type()
     {
-        return "RST";
+        return "FIN";
     }
 }
